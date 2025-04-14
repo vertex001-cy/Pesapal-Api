@@ -81,3 +81,5 @@ def callback():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
+    # Note: When deployed to Render, the gunicorn command will be used instead
+    # The PORT environment variable will be set automatically by Render
