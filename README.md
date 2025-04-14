@@ -50,5 +50,15 @@ This implementation supports payments from:
    ```
 3. Run the project using the Run button
 4. Check the logs to see if authentication was successful
-5. When you're ready to test payment initiation, uncomment the relevant code in `main.py`
+
+## 💡 Deployment Instructions
+To deploy this project:
+
+1. Make sure all your files are committed to your repository
+2. Set up environment variables in your deployment platform:
+   - PESAPAL_CONSUMER_KEY
+   - PESAPAL_CONSUMER_SECRET
+   - FLASK_SECRET_KEY (optional, for session security)
+3. The project will automatically use the PORT environment variable provided by the hosting platform
+4. After deployment, update your PesaPal callback URLs to point to your new deployment domaint code in `main.py`
 
