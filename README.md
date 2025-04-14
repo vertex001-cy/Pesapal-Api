@@ -20,7 +20,18 @@
 Pesapal has become popular in several African countries including Kenya, Uganda, Tanzania, Zambia, Zimbabwe, Malawi, and Rwanda.
 
 ## 💡 Project Overview
-In this reposotory, I'm going to demonstrate how the pesapal API can be consumed using python code and initiate an stk push to the users . This can be applied to python applications written in django, flask and streamlit to recieve payments.
+In this repository, I'm going to demonstrate how the pesapal API can be consumed using python code and initiate an stk push to the users. This can be applied to python applications written in django, flask and streamlit to receive payments.
 - Project code; https://github.com/SHIVOGOJOHN/Pesapal-Api/blob/main/pesapal.py
 - For more info visit; https://developer.pesapal.com/how-to-integrate/e-commerce/api-30-json/api-reference
+
+## 💡 Setup Instructions
+1. Create a `.env` file in the project root directory
+2. Add your Pesapal credentials to the `.env` file:
+   ```
+   PESAPAL_CONSUMER_KEY=your_consumer_key_here
+   PESAPAL_CONSUMER_SECRET=your_consumer_secret_here
+   ```
+3. Run the project using the Run button
+4. Check the logs to see if authentication was successful
+5. When you're ready to test payment initiation, uncomment the relevant code in `main.py`
 
