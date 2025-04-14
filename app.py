@@ -28,11 +28,20 @@ def index():
 def deposit():
     if request.method == 'POST':
         try:
-            # Get form data
-            first_name = request.form.get('first_name')
-            last_name = request.form.get('last_name')
-            phone = request.form.get('phone')
-            amount = float(request.form.get('amount'))
+            # Get form data (simplified for new UI)
+            first_name = request.form.get('first_name', 'User')
+            last_name = request.form.get('last_name', 'Name')
+            phone = request.form.get('phone', '254700000000')
+            
+            # Get and validate amount
+            try:
+                amount = float(request.form.get('amount', 100))
+                if amount < 10:
+                    amount = 10
+                elif amount > 10000:
+                    amount = 10000
+            except ValueError:
+                amount = 100
             
             # Generate a unique order ID
             order_id = f"VTX-{uuid.uuid4().hex[:8]}"
