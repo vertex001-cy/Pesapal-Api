@@ -1,0 +1,77 @@
+> Cloning from https://github.com/vertex001-cy/Pesapal-Api
+==> Checking out commit 98510a494ea663366aaac254018587bd3402ddf5 in branch main
+==> Using Python version 3.11.11 (default)
+==> Docs on specifying a Python version: https://render.com/docs/python-version
+==> Using Poetry version 1.7.1 (default)
+==> Docs on specifying a Poetry version: https://render.com/docs/poetry-version
+==> Running build command 'pip install -r requirements.txt'...
+Collecting flask>=3.1.0 (from -r requirements.txt (line 2))
+  Downloading flask-3.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting python-dotenv>=1.1.0 (from -r requirements.txt (line 3))
+  Downloading python_dotenv-1.1.0-py3-none-any.whl.metadata (24 kB)
+Collecting requests>=2.32.3 (from -r requirements.txt (line 4))
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting gunicorn>=21.2.0 (from -r requirements.txt (line 5))
+  Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting Werkzeug>=3.1 (from flask>=3.1.0->-r requirements.txt (line 2))
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting Jinja2>=3.1.2 (from flask>=3.1.0->-r requirements.txt (line 2))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.2 (from flask>=3.1.0->-r requirements.txt (line 2))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from flask>=3.1.0->-r requirements.txt (line 2))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting blinker>=1.9 (from flask>=3.1.0->-r requirements.txt (line 2))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting charset-normalizer<4,>=2 (from requests>=2.32.3->-r requirements.txt (line 4))
+  Downloading charset_normalizer-3.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting idna<4,>=2.5 (from requests>=2.32.3->-r requirements.txt (line 4))
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests>=2.32.3->-r requirements.txt (line 4))
+  Downloading urllib3-2.4.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests>=2.32.3->-r requirements.txt (line 4))
+  Downloading certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting packaging (from gunicorn>=21.2.0->-r requirements.txt (line 5))
+  Downloading packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->flask>=3.1.0->-r requirements.txt (line 2))
+  Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Downloading flask-3.1.0-py3-none-any.whl (102 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.0/103.0 kB 3.8 MB/s eta 0:00:00
+Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 4.3 MB/s eta 0:00:00
+Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.0/85.0 kB 4.7 MB/s eta 0:00:00
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 166.4/166.4 kB 8.5 MB/s eta 0:00:00
+Downloading charset_normalizer-3.4.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (143 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 143.9/143.9 kB 6.8 MB/s eta 0:00:00
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 7.0 MB/s eta 0:00:00
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 4.5 MB/s eta 0:00:00
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 8.9 MB/s eta 0:00:00
+Downloading urllib3-2.4.0-py3-none-any.whl (128 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 128.7/128.7 kB 8.4 MB/s eta 0:00:00
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 224.5/224.5 kB 14.1 MB/s eta 0:00:00
+Downloading packaging-24.2-py3-none-any.whl (65 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 3.5 MB/s eta 0:00:00
+Downloading MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Installing collected packages: urllib3, python-dotenv, packaging, MarkupSafe, itsdangerous, idna, click, charset-normalizer, certifi, blinker, Werkzeug, requests, Jinja2, gunicorn, flask
+Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.2 Werkzeug-3.1.3 blinker-1.9.0 certifi-2025.1.31 charset-normalizer-3.4.1 click-8.1.8 flask-3.1.0 gunicorn-23.0.0 idna-3.10 itsdangerous-2.2.0 packaging-24.2 python-dotenv-1.1.0 requests-2.32.3 urllib3-2.4.0
+[notice] A new release of pip is available: 24.0 -> 25.0.1
+[notice] To update, run: pip install --upgrade pip
+==> Uploading build...
+==> Uploaded in 4.3s. Compression took 1.8s
+==> Build successful 🎉
+==> Deploying...
+==> Running 'startCommand: gunicorn app:app'
+bash: line 1: startCommand:: command not found
+==> Exited with status 127
+==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+==> Running 'startCommand: gunicorn app:app'
+bash: line 1: startCommand:: command not found
