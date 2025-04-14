@@ -17,12 +17,11 @@ def main():
         logging.error("Authentication failed.")
         return
     
-    # Test payment initiation (you can comment this out and uncomment when ready to test)
-    """
+    # Test payment initiation
     response = pesapal.initiate_payment(
-        phone="254700000000",  # Replace with a test phone number
-        bid_amount=100.00,     # This is not used in the current implementation
-        order_id="test-order", # This is not used in the current implementation
+        phone="254700000000",  # Test phone number
+        bid_amount=100.00,     # Test amount
+        order_id="test-order-123",  # Test order ID
         Fname="Test",          # First name
         Lname="User"           # Last name
     )
@@ -31,7 +30,6 @@ def main():
         logging.info(f"Payment initiation successful: {response}")
     else:
         logging.error("Payment initiation failed.")
-    """
 
 if __name__ == "__main__":
     main()
