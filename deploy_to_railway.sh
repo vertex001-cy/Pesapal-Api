@@ -4,19 +4,18 @@ echo "Preparing for Railway deployment..."
 
 # Ensure all files are committed to git
 git add .
-git commit -m "Prepare for Railway deployment"
+git commit -m "Prepare for Railway deployment" || echo "No changes to commit"
 
-# Deploy to Railway (requires Railway CLI)
-# First, install Railway CLI if not installed
-if ! command -v railway &> /dev/null; then
-    echo "Installing Railway CLI..."
-    curl -fsSL https://railway.app/install.sh | sh
-fi
+# Install Railway CLI via npm
+echo "Installing Railway CLI via npm..."
+npm install -g @railway/cli
 
 # Login to Railway (opens browser)
+echo "Please login to Railway..."
 railway login
 
 # Create a new project or link to existing one
+echo "Initializing Railway project..."
 railway init
 
 # Set environment variables
