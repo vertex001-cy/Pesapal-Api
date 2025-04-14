@@ -17,10 +17,27 @@
 - **Service providers**: Bill customers for recurring services like utilities or subscriptions.
 - **Event organizers**: Sell tickets online and collect payments.
 - **Non-profits**: Collect donations through online platforms.
-Pesapal has become popular in several African countries including Kenya, Uganda, Tanzania, Zambia, Zimbabwe, Malawi, and Rwanda.
+Pesapal has become popular in several African countries including:
+- Kenya
+- Malawi
+- Rwanda
+- Tanzania
+- Uganda
+- Zambia
+- Zimbabwe, and Rwanda.
 
 ## 💡 Project Overview
 In this repository, I'm going to demonstrate how the pesapal API can be consumed using python code and initiate an stk push to the users. This can be applied to python applications written in django, flask and streamlit to receive payments.
+
+### Supported Countries
+This implementation supports payments from:
+- Kenya
+- Malawi
+- Rwanda
+- Tanzania
+- Uganda
+- Zambia
+- Zimbabwe
 - Project code; https://github.com/SHIVOGOJOHN/Pesapal-Api/blob/main/pesapal.py
 - For more info visit; https://developer.pesapal.com/how-to-integrate/e-commerce/api-30-json/api-reference
 
