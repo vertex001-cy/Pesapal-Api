@@ -15,6 +15,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "vertex-trading-secret")
 
+# Define the live URL for use in callbacks
+LIVE_URL = os.getenv("LIVE_URL", "https://pesapal-api-1.onrender.com")
+
 pesapal = PesapalAPI()
 
 @app.route('/')
@@ -68,6 +71,7 @@ def success():
 def callback():
     # Handle PesaPal callback
     # This should match the callback URL set in the PesaPal API
+    # Make sure this is set to {LIVE_URL}/callback in your PesaPal dashboard
     order_tracking_id = request.args.get('OrderTrackingId')
     merchant_reference = request.args.get('OrderMerchantReference')
     

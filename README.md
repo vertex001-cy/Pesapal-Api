@@ -60,5 +60,6 @@ To deploy this project:
    - PESAPAL_CONSUMER_SECRET
    - FLASK_SECRET_KEY (optional, for session security)
 3. The project will automatically use the PORT environment variable provided by the hosting platform
-4. After deployment, update your PesaPal callback URLs to point to your new deployment domaint code in `main.py`
+4. After deployment, update your PesaPal callback URLs to point to your new deployment domain
+   - Current live URL: https://pesapal-api-1.onrender.comaint code in `main.py`
 
