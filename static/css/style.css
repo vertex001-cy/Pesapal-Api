@@ -190,7 +190,7 @@ footer p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .payment-method {
@@ -228,6 +228,13 @@ footer p {
     max-height: 40px;
     max-width: 80px;
     object-fit: contain;
+}
+
+.mpesa-logo {
+    height: 40px;
+    width: auto;
+    max-width: 80px;
+    background-color: transparent;
 }
 
 .conversion-info {
@@ -385,7 +392,12 @@ footer p {
 
 /* Deposit form styles */
 .deposit-form {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#proceed-button {
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
         grid-template-columns: 1fr;
