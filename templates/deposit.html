@@ -15,7 +15,6 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('deposit') }}" class="active">Deposit</a></li>
                 </ul>
             </nav>
@@ -38,24 +37,15 @@
                         <input type="number" id="amount" placeholder="100" min="10" max="10000">
                     </div>
                     
+                    <div class="conversion-info">
+                        <p>You will be charged approximately <span id="kes-amount">14,000</span> KES</p>
+                    </div>
+                    
                     <h2>Payment Method</h2>
                     <div class="payment-methods">
-                        <div class="payment-method" id="card-method">
-                            <div class="payment-icon">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2" y="5" width="20" height="14" rx="2" stroke="#ffffff" stroke-width="2"/>
-                                    <line x1="2" y1="10" x2="22" y2="10" stroke="#ffffff" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="payment-info">
-                                <h3>Credit / Debit Card</h3>
-                                <p>Instant processing</p>
-                            </div>
-                        </div>
-                        
                         <div class="payment-method" id="mpesa-method">
                             <div class="payment-icon">
-                                <span class="mpesa-logo">M-PESA</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa Logo" class="payment-logo">
                             </div>
                             <div class="payment-info">
                                 <h3>M-Pesa</h3>
@@ -65,7 +55,7 @@
                         
                         <div class="payment-method" id="airtel-method">
                             <div class="payment-icon">
-                                <span class="airtel-logo">airtel</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Airtel_logo.svg" alt="Airtel Money Logo" class="payment-logo">
                             </div>
                             <div class="payment-info">
                                 <h3>Airtel Money</h3>
@@ -75,11 +65,21 @@
                         
                         <div class="payment-method" id="mastercard-method">
                             <div class="payment-icon">
-                                <span class="mastercard-logo">Mastercard</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard Logo" class="payment-logo">
                             </div>
                             <div class="payment-info">
                                 <h3>Mastercard</h3>
                                 <p>Global payment network</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method" id="visa-method">
+                            <div class="payment-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa Logo" class="payment-logo">
+                            </div>
+                            <div class="payment-info">
+                                <h3>Visa</h3>
+                                <p>Worldwide card payments</p>
                             </div>
                         </div>
                     </div>
@@ -103,6 +103,10 @@
                         <div class="info-row">
                             <span>Processing Fee</span>
                             <span class="value">None</span>
+                        </div>
+                        <div class="info-row">
+                            <span>Exchange Rate</span>
+                            <span class="value">1 USD = 140 KES</span>
                         </div>
                     </div>
                     
@@ -146,6 +150,7 @@
                         <input type="hidden" id="last_name" name="last_name" value="Name">
                         <input type="hidden" id="phone" name="phone" value="254700000000">
                         <input type="hidden" id="amount_hidden" name="amount" value="100">
+                        <input type="hidden" id="amount_kes" name="amount_kes" value="14000">
                         <button type="submit" id="proceed-button" class="cta-button">Proceed to Payment</button>
                     </form>
                 </div>
@@ -161,13 +166,29 @@
         document.addEventListener('DOMContentLoaded', function() {
             const amountInput = document.getElementById('amount');
             const hiddenAmountInput = document.getElementById('amount_hidden');
+            const hiddenAmountKesInput = document.getElementById('amount_kes');
+            const kesAmountDisplay = document.getElementById('kes-amount');
             const proceedButton = document.getElementById('proceed-button');
             const paymentMethods = document.querySelectorAll('.payment-method');
             
-            // Update hidden amount when visible amount changes
+            const EXCHANGE_RATE = 140; // 1 USD = 140 KES
+            
+            // Update hidden amount and KES conversion when visible amount changes
             amountInput.addEventListener('input', function() {
-                hiddenAmountInput.value = this.value;
+                const usdAmount = parseFloat(this.value) || 0;
+                hiddenAmountInput.value = usdAmount;
+                
+                // Calculate KES amount
+                const kesAmount = usdAmount * EXCHANGE_RATE;
+                hiddenAmountKesInput.value = kesAmount;
+                
+                // Format KES amount with commas
+                kesAmountDisplay.textContent = new Intl.NumberFormat().format(kesAmount);
             });
+            
+            // Initialize with default value
+            amountInput.value = 100;
+            amountInput.dispatchEvent(new Event('input'));
             
             // Select payment method
             paymentMethods.forEach(method => {

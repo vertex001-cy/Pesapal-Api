@@ -33,23 +33,27 @@ def deposit():
             last_name = request.form.get('last_name', 'Name')
             phone = request.form.get('phone', '254700000000')
             
-            # Get and validate amount
+            # Get and validate USD amount
             try:
-                amount = float(request.form.get('amount', 100))
-                if amount < 10:
-                    amount = 10
-                elif amount > 10000:
-                    amount = 10000
+                usd_amount = float(request.form.get('amount', 100))
+                if usd_amount < 10:
+                    usd_amount = 10
+                elif usd_amount > 10000:
+                    usd_amount = 10000
+                
+                # Convert to KES (fixed rate: 1 USD = 140 KES)
+                kes_amount = usd_amount * 140
             except ValueError:
-                amount = 100
+                usd_amount = 100
+                kes_amount = 14000
             
             # Generate a unique order ID
             order_id = f"VTX-{uuid.uuid4().hex[:8]}"
             
-            # Initialize payment
+            # Initialize payment with KES amount
             response = pesapal.initiate_payment(
                 phone=phone,
-                bid_amount=amount,
+                bid_amount=kes_amount,  # Use KES amount for payment
                 order_id=order_id,
                 Fname=first_name,
                 Lname=last_name

@@ -219,9 +219,29 @@ footer p {
     justify-content: center;
 }
 
-.mpesa-logo, .airtel-logo, .mastercard-logo {
+.payment-logo {
+    max-height: 40px;
+    max-width: 80px;
+    object-fit: contain;
+}
+
+.conversion-info {
+    background-color: rgba(200, 255, 0, 0.1);
+    border-left: 3px solid #C8FF00;
+    padding: 10px 15px;
+    margin: 15px 0 25px;
+    border-radius: 4px;
+}
+
+.conversion-info p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+#kes-amount {
     font-weight: bold;
-    font-size: 1.2rem;
+    color: #C8FF00;
+    font-size: 1.1rem;
 }
 
 .mpesa-logo {
