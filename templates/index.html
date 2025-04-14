@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex Trading</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Vertex <span class="accent">Trading</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('deposit') }}">Deposit</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="hero">
+                <h2>Take Your Trading to New Heights</h2>
+                <p>Secure, fast, and reliable payment solutions for traders across Africa</p>
+                <a href="{{ url_for('deposit') }}" class="cta-button">Make a Deposit</a>
+            </section>
+            
+            <section class="features">
+                <div class="feature">
+                    <h3>Secure Payments</h3>
+                    <p>Your transactions are protected with industry-standard security protocols</p>
+                </div>
+                <div class="feature">
+                    <h3>Multiple Countries</h3>
+                    <p>Supporting traders in Kenya, Uganda, Tanzania, Rwanda, Malawi, Zambia, and Zimbabwe</p>
+                </div>
+                <div class="feature">
+                    <h3>Instant Processing</h3>
+                    <p>Get your funds credited to your trading account within minutes</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Vertex Trading. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - Vertex Trading</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Vertex <span class="accent">Trading</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('deposit') }}">Deposit</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="success-section">
+                <div class="success-icon">✓</div>
+                <h2>Payment <span class="accent">Successful</span>!</h2>
+                <p>Your deposit has been processed successfully.</p>
+                <p>Your funds will be credited to your trading account shortly.</p>
+                <a href="{{ url_for('index') }}" class="cta-button">Return Home</a>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Vertex Trading. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
