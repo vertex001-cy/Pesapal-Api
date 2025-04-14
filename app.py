@@ -36,9 +36,22 @@ def deposit():
             # Get and validate USD amount
             try:
                 usd_amount = float(request.form.get('amount', 100))
+                
+                # Check if this is the user's first deposit
+                # In a real app, you would check this from a database
+                is_first_deposit = True  # For demo purposes
+                
+                if is_first_deposit:
+                    # Enforce the $15 limit for first-time users
+                    max_first_deposit = 15
+                    if usd_amount > max_first_deposit:
+                        usd_amount = max_first_deposit
+                        flash(f"As a new user, your first deposit is limited to ${max_first_deposit}.", "warning")
+                
+                # Apply general limits
                 if usd_amount < 10:
                     usd_amount = 10
-                elif usd_amount > 10000:
+                elif usd_amount > 10000 and not is_first_deposit:
                     usd_amount = 10000
                 
                 # Convert to KES (fixed rate: 1 USD = 140 KES)

@@ -83,6 +83,23 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div id="new-user-warning" class="new-user-warning" style="display: none;">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-text">
+                            <p><strong>First-time deposit limit:</strong> New users are limited to a maximum of $15 for their first deposit.</p>
+                            <p>Once this initial deposit is processed, you'll be able to deposit any amount up to $10,000.</p>
+                        </div>
+                    </div>
+                    
+                    <form class="deposit-form" action="{{ url_for('deposit') }}" method="post">
+                        <input type="hidden" id="first_name" name="first_name" value="User">
+                        <input type="hidden" id="last_name" name="last_name" value="Name">
+                        <input type="hidden" id="phone" name="phone" value="254700000000">
+                        <input type="hidden" id="amount_hidden" name="amount" value="100">
+                        <input type="hidden" id="amount_kes" name="amount_kes" value="14000">
+                        <button type="submit" id="proceed-button" class="cta-button">Proceed to Payment</button>
+                    </form>
                 </div>
                 
                 <div class="deposit-info-section">
@@ -139,20 +156,11 @@
                     <div class="info-expandable">
                         <div class="expandable-header">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9L12 15L18 9" stroke="#C8FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9L12 15L18 9" stroke="#dce83f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <span>Frequently Asked Questions</span>
                         </div>
                     </div>
-                    
-                    <form class="hidden-form" action="{{ url_for('deposit') }}" method="post">
-                        <input type="hidden" id="first_name" name="first_name" value="User">
-                        <input type="hidden" id="last_name" name="last_name" value="Name">
-                        <input type="hidden" id="phone" name="phone" value="254700000000">
-                        <input type="hidden" id="amount_hidden" name="amount" value="100">
-                        <input type="hidden" id="amount_kes" name="amount_kes" value="14000">
-                        <button type="submit" id="proceed-button" class="cta-button">Proceed to Payment</button>
-                    </form>
                 </div>
             </div>
         </main>
@@ -170,12 +178,28 @@
             const kesAmountDisplay = document.getElementById('kes-amount');
             const proceedButton = document.getElementById('proceed-button');
             const paymentMethods = document.querySelectorAll('.payment-method');
+            const newUserWarning = document.getElementById('new-user-warning');
             
             const EXCHANGE_RATE = 140; // 1 USD = 140 KES
+            const MAX_FIRST_DEPOSIT = 15; // Maximum amount for first deposit
+            
+            // Simulate a check for new users - in a real app, this would come from the server
+            const isNewUser = true; // For demo purposes, assuming all users are new
+            
+            if (isNewUser) {
+                newUserWarning.style.display = 'flex';
+            }
             
             // Update hidden amount and KES conversion when visible amount changes
             amountInput.addEventListener('input', function() {
-                const usdAmount = parseFloat(this.value) || 0;
+                let usdAmount = parseFloat(this.value) || 0;
+                
+                // For new users, cap the amount at MAX_FIRST_DEPOSIT
+                if (isNewUser && usdAmount > MAX_FIRST_DEPOSIT) {
+                    usdAmount = MAX_FIRST_DEPOSIT;
+                    this.value = MAX_FIRST_DEPOSIT;
+                }
+                
                 hiddenAmountInput.value = usdAmount;
                 
                 // Calculate KES amount
@@ -186,8 +210,8 @@
                 kesAmountDisplay.textContent = new Intl.NumberFormat().format(kesAmount);
             });
             
-            // Initialize with default value
-            amountInput.value = 100;
+            // Initialize with default value (respecting the new user limit)
+            amountInput.value = isNewUser ? (Math.min(100, MAX_FIRST_DEPOSIT)) : 100;
             amountInput.dispatchEvent(new Event('input'));
             
             // Select payment method
@@ -195,9 +219,6 @@
                 method.addEventListener('click', function() {
                     paymentMethods.forEach(m => m.classList.remove('selected'));
                     this.classList.add('selected');
-                    
-                    // Show proceed button when payment method is selected
-                    proceedButton.style.display = 'block';
                 });
             });
         });
